@@ -9,12 +9,16 @@ const bookRoutes = require('./routes/bookRoutes');
 // Add this to your server.js
 const cartRoutes = require('./routes/cartRoutes');
 
+const errorHandler = require('./middleware/errorMiddleware');
+
 dotenv.config();
 connectDB();
 
 const app = express();
 
 app.use(express.json()); // Middleware for parsing JSON bodies
+// Error Handling Middleware
+app.use(errorHandler);
 
 // Use authRoutes with '/api/auth' prefix
 app.use('/api/auth', authRoutes);
