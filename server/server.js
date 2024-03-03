@@ -6,6 +6,8 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 // Add this to your server.js
 const bookRoutes = require('./routes/bookRoutes');
+// Add this to your server.js
+const cartRoutes = require('./routes/cartRoutes');
 
 dotenv.config();
 connectDB();
@@ -19,6 +21,9 @@ app.use('/api/auth', authRoutes);
 
 // Use bookRoutes with '/api/books' prefix
 app.use('/api/books', bookRoutes);
+
+// Use cartRoutes with '/api/cart' prefix
+app.use('/api/cart', cartRoutes);
 
 const PORT = process.env.PORT || 3000;
 
